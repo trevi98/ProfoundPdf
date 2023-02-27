@@ -1,0 +1,29 @@
+/**
+ * Nova Field Rounded Styles
+ */
+.ck.ck-reset.ck-editor
+    .ck.ck-toolbar
+        border-radius: 10px 10px 0 0
+
+    .ck-editor__editable_inline
+        @import "./figures.sass"
+        @import "./blocks.sass"
+        border-radius: 0 0 10px 10px
+        padding: 0 10px
+        margin: 0
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused
+    box-shadow: none !important
+
+.ck-responsive-form
+    .ck-labeled-input
+        margin-left: 0 !important
+        margin-bottom: 8px !important
+        display: block
+        float: none !important
+        width: 100% !important
+
+
+.ck-widget.raw-html-embed
+    .raw-html-embed__buttons-wrapper
+        z-index: 1
