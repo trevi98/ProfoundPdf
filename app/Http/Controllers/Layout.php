@@ -133,7 +133,7 @@ class Layout extends Controller
         $css = "
                 @font-face {
                     font-family: 'nova';
-                    src: url(\"{{ asset('fonts/Proxima nova/Proxima Nova Regular.otf') }}\") format('truetype');
+                    src: url('data:font/ttf;base64,--fontInBase64FontHere--',\"{{ asset('fonts/Proxima nova/Proxima Nova Regular.otf') }}\") format('truetype');
                 }
                 *{
                     margin: 0px;
