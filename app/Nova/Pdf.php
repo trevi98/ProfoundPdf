@@ -98,7 +98,7 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
+                ])->rules('max:10'),
                 Image::make('map'),
                 Swatches::make('Text Color', 'text_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31',"#fff","#000"],
