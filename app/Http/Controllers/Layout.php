@@ -62,12 +62,12 @@ class Layout extends Controller
         $layout = $this->home_layout($args['global_data']);
         $global_html .= $layout[0];
         $global_css .= $layout[1];
-        if(strlen($args['global_data']['area_description']) <= 1001){
+        if(strlen($args['global_data']['area_description']) <= 968){
 
             $layout = $this->area_first_page($args['global_data']);
         }
         else{
-            list($first_part, $second_part) = $this->break_text($args['global_data']['area_description'],1001);
+            list($first_part, $second_part) = $this->break_text($args['global_data']['area_description'],968);
             $layout = $this->area_2_pager(['global' => $args['global_data'],'local'=>['first'=>$first_part,'second'=>$second_part]]);
             // dd($first_part);
         }
