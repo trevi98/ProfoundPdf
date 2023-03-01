@@ -38,7 +38,7 @@ class DownloadPdef extends Action
             // sleep(5);
             // $ch = curl_init("localhost:3000?url=".$view."&name=".$model->title." brochure");
             // Redirect::to("localhost:3000?url=".$view."&name=".$model->title." brochure");
-            return Action::redirect("http://127.0.0.1:8000/testdown?view=".$view."&name=".$model->title." brocure");
+            return Action::redirect("http://145.14.158.172/testdown?view=".$view."&name=".$model->title." brocure");
             // MyDelayedJob::dispatch()->delay(now()->addSeconds(2));
 
 
