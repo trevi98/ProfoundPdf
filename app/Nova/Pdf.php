@@ -55,11 +55,12 @@ class Pdf extends Resource
     {
         return [
             // ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Title','title'),
+            Text::make('Title','title')->required(),
             // Image::make('Developer logo','developer_logo'),
-            Image::make('Cover','cover'),
+            Image::make('Cover','cover')->creationRules('required'),
+            Image::make('Last page image','last'),
             // BelongsTo::make('Area','area')->searchable(),
-            Select::make('Area', 'area_id') ->searchable() ->options(\App\Models\Area::all()->pluck('title', 'id')) ->displayUsingLabels(),
+            Select::make('Area', 'area_id') ->searchable() ->options(\App\Models\Area::all()->pluck('title', 'id')) ->displayUsingLabels()->required(),
             Select::make('Developer', 'developer_id') ->searchable() ->options(\App\Models\Developer::all()->pluck('title', 'id')) ->displayUsingLabels(),
             Flexible::make('pages')
             ->button('Add Page')
@@ -75,7 +76,7 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
+                ])->rules('required'),
                 // Trix::make('Description','description'),
                 CkEditor::make(trans('Description'), 'description')->height('400')->stacked()->toolbar([
                     'heading',
@@ -98,27 +99,27 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ])->rules('max:10'),
-                Image::make('map'),
+                ])->rules('required'),
+                Image::make('map')->creationRules('required'),
                 Swatches::make('Text Color', 'text_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31',"#fff","#000"],
-                ])->default('#fff'),
+                ])->default('#fff')->rules('required'),
                 Swatches::make('Background Color', 'background_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31'],
-                ])->default('#002D31'),
+                ])->default('#002D31')->rules('required'),
             ])
             ->addLayout('Single image with caption', 'single_pic_with_caption', [
-                Image::make('Image','img'),
-                Text::make('Caption','caption'),
+                Image::make('Image','img')->creationRules('required'),
+                Text::make('Caption','caption')->required(),
                 Swatches::make('Text Color', 'text_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31',"#fff","#000"],
-                ])->default('#fff'),
+                ])->default('#fff')->rules('required'),
                 Swatches::make('Background Color', 'background_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31'],
-                ])->default('#002D31'),
+                ])->default('#002D31')->rules('required'),
             ])
             ->addLayout('Floorplan', 'floor_plans', [
-                Image::make('Floorplan','floorplan'),
+                Image::make('Floorplan','floorplan')->creationRules('required'),
             ])
             ->addLayout('Text Image Image Text', 'text_img_img_text', [
                 CkEditor::make(trans('Title1'), 'title1')->height('60')->stacked()->toolbar([
@@ -131,7 +132,7 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
+                ])->rules('required'),
                 CkEditor::make(trans('Description1'), 'description1')->height('400')->stacked()->toolbar([
                     'heading',
                     '|',
@@ -153,8 +154,8 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
-                Image::make('Image 1','img1'),
+                ])->rules('required'),
+                Image::make('Image 1','img1')->creationRules('required'),
                 CkEditor::make(trans('Title2'), 'title2')->height('60')->stacked()->toolbar([
                     'heading',
                     '|',
@@ -165,7 +166,7 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
+                ])->rules('required'),
                 CkEditor::make(trans('Description2'), 'description2')->height('400')->stacked()->toolbar([
                     'heading',
                     '|',
@@ -187,39 +188,39 @@ class Pdf extends Resource
                     '|',
                     'undo',
                     'redo'
-                ]),
-                Image::make('Image 2','img2'),
+                ])->rules('required'),
+                Image::make('Image 2','img2')->creationRules('required'),
                 Swatches::make('Text Color', 'text_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31',"#fff","#000"],
-                ])->default('#fff'),
+                ])->default('#fff')->rules('required'),
                 Swatches::make('Background Color', 'background_color')->withProps([
                     'colors' => ['#D5DCDD', '#002D31'],
-                ])->default('#002D31'),
+                ])->default('#002D31')->rules('required'),
             ]),
 
 
             Flexible::make('Landmarks','landmarks')
             ->button('Add Landmark')
             ->addLayout('Landmark', 'landmarks', [
-                Text::make('Landmark','landmark'),
-                Text::make('Distance','distance'),
-                Text::make('Drive','drive'),
+                Text::make('Landmark','landmark')->required(),
+                Text::make('Distance','distance')->required(),
+                Text::make('Drive','drive')->required(),
             ]),
             Flexible::make('Payment plans','payment_plan')
             ->button('Add Payment Plan')
             ->addLayout('Paymentplan', 'paymentplan', [
-                Text::make('Installment','installment'),
-                Text::make('Milestone','milestone'),
-                Text::make('Payment','payment'),
+                Text::make('Installment','installment')->required(),
+                Text::make('Milestone','milestone')->required(),
+                Text::make('Payment','payment')->required(),
 
             ]),
             Flexible::make('Projection','projections')
             ->button('Add Projection')
             ->addLayout('Projection', 'projection', [
-                Text::make('Property price','property_price'),
-                Text::make('Minimum rate per night','minimum_rate_per_night'),
-                Text::make('Yearly service charge','yearly_service_charge'),
-                Text::make('Rental rate per year','rental_rate_per_year'),
+                Text::make('Property price','property_price')->required(),
+                Text::make('Minimum rate per night','minimum_rate_per_night')->required(),
+                Text::make('Yearly service charge','yearly_service_charge')->required(),
+                Text::make('Rental rate per year','rental_rate_per_year')->required(),
             ])->limit(1),
             Hidden::make('user_id')->default(Auth::user()->id),
             BelongsTo::make('User','user',User::class)->default(Auth::user()->id)->hideWhenCreating()->hideWhenUpdating(),
@@ -273,15 +274,18 @@ class Pdf extends Resource
         ];
     }
 
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-        if(Auth::user()->is_admin){
-            return $query;
-        }
-        else{
+    // public static function indexQuery(NovaRequest $request, $query)
+    // {
+    //     if(Auth::user()->is_admin){
+    //         return $query;
+    //     }
+    //     else{
 
-            return $query->where('user_id', Auth::user()->id) ;
-        }
+    //         return $query->where('user_id', Auth::user()->id) ;
+    //     }
+    // }
+    public static function label() {
+        return 'Brochures';
     }
 
 }

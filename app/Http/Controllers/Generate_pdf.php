@@ -88,7 +88,8 @@ class Generate_pdf extends Controller
         $data = [
             "title" => $pdf->title,
             "cover" => $pdf->cover,
-            "developer_logo" => $pdf->developer->logo,
+            "last" => $pdf->last,
+            "developer_logo" => $pdf->developer->logo ?? null,
             'area_title' => $pdf->area->title,
             'area_description' => $pdf->area->description,
             'area_img_1' => $pdf->area->img1,

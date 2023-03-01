@@ -6,6 +6,7 @@
             <media-browser @select="$options.editor.execute('imageBrowser', $event)" type="image" :field-key="$options.uuid + '-image'" :multiple="true" />
             <media-browser @select="$options.editor.execute('videoBrowser', $event)" type="video" :field-key="$options.uuid + '-video'" :multiple="true" :has-larupload-trait="field.videoHasLaruploadTrait" />
             <snippet-browser :field-key="$options.uuid" :snippets="field.snippetBrowser" />
+            
         </template>
     </default-field>
 </template>

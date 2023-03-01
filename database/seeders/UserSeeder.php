@@ -23,8 +23,26 @@ class UserSeeder extends Seeder
             // Add more columns as needed
         ]);
         DB::table('users')->insert([
-            'name' => 'agent 1',
-            'email' => 'ag1@a.a',
+            'name' => 'Shawad',
+            'email' => 'm.shawad@theprofoundproperties.com',
+            'password' => '$2y$10$zE4xzTuPqQ2SBSBriRwAn.oPbqbUObJk87N/RKoJmNm7kQC/cbiga',
+            // Add more columns as needed
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Nassif',
+            'email' => 'nassif@theprofoundproperties.com',
+            'password' => '$2y$10$zE4xzTuPqQ2SBSBriRwAn.oPbqbUObJk87N/RKoJmNm7kQC/cbiga',
+            // Add more columns as needed
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Lilian',
+            'email' => 'lilianchan@theprofoundproperties.com',
+            'password' => '$2y$10$zE4xzTuPqQ2SBSBriRwAn.oPbqbUObJk87N/RKoJmNm7kQC/cbiga',
+            // Add more columns as needed
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Pitchou',
+            'email' => 'makuku.pitchou@theprofoundproperties.com',
             'password' => '$2y$10$zE4xzTuPqQ2SBSBriRwAn.oPbqbUObJk87N/RKoJmNm7kQC/cbiga',
             // Add more columns as needed
         ]);

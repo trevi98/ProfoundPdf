@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PDO;
 
 class Layout extends Controller
@@ -92,6 +93,9 @@ class Layout extends Controller
             $global_css .= $layout[1];
 
         }
+        $layout = $this->last_page_layout(['global'=>$args['global_data']]);
+        $global_html .= $layout[0];
+        $global_css .= $layout[1];
 
 
         $global_css .="</style>";
@@ -116,7 +120,11 @@ class Layout extends Controller
                 <div class=\"wrapper\">
                     <img src=\"{{ asset('imgs/footer.png') }}\" alt=\"\">
                     <div class=\"dev\">
-                        <img class=\"dev-logo\" src=\"{{ asset('storage/".$data['developer_logo']."') }}\" alt=\"\">
+                    ";
+                    if($data['developer_logo'] != null){
+                        $html .= "<img class=\"dev-logo\" src=\"{{ asset('storage/".$data['developer_logo']."') }}\" alt=\"\">";
+                    }
+                    $html .="
                     </div>
                     <div class=\"location\">
                         <div class=\"wrapper\">
@@ -255,7 +263,6 @@ class Layout extends Controller
                     height: 100%;
                     top: 0px;
                     left: 0px;
-                    background-color: red;
                     background-color: rgba(1,20,22,0.4);
                     mix-blend-mode: soft-light;
                 }
@@ -1172,6 +1179,69 @@ class Layout extends Controller
             }
             .projection-page table tr:last-of-type th,.projection-page table tr:last-of-type td{
                 border-bottom: none;
+            }
+        ";
+        return [$html,$css];
+    }
+    public function last_page_layout($data){
+        $html = "
+            <div class=\"page \">
+                <div class=\"final-page-main\">
+                    <div class=\"final-page-img\">
+                        ";
+                        if($data['global']['last'] != null){
+
+                            $html .= "
+                            <img src=". asset('storage/'.$data['global']['last'])." alt=\"\">";
+                        }
+                        $html .="
+                        <div class=\"filter\"></div>
+                    </div>
+                    <div class=\"sginiture\">
+                        <img src=". asset('imgs/'.Auth::user()->email.'.svg')." alt=\"\">
+                    </div>
+                </div>
+            </div>
+        ";
+        $css = "
+            .final-page-main{
+                height: 100vh;
+                width: 100vw;
+            }
+            .final-page-img{
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            .final-page-img .filter{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                /* background-color: red; */
+                background-color: rgba(1,20,22,0.4);
+                mix-blend-mode: soft-light;
+            }
+            .final-page-img img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .sginiture{
+                position: absolute;
+                width: 100%;
+                height: 149px;
+                bottom: 0px;
+                left: 0px;
+                opacity: 0.9;
+            }
+            .sginiture img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
         ";
         return [$html,$css];
