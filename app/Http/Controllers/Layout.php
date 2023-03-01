@@ -885,7 +885,7 @@ class Layout extends Controller
                 <div class=\"t-i-i-t\">
                     <div class=\"t-i-i-t-left_text\">
                         <div class=\"t-i-i-t-title\">
-                            Title
+                        ".$args['local']->title1."
                         </div>
                         <p>
                             ".$args['local']->description1."
@@ -902,7 +902,7 @@ class Layout extends Controller
                     </div>
                     <div class=\"t-i-i-t-right_text\">
                         <div class=\"t-i-i-t-title\">
-                            Title
+                        ".$args['local']->title2."
                         </div>
                         <p>
                             ".$args['local']->description2."
