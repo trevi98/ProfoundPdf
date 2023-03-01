@@ -210,15 +210,23 @@ class Layout extends Controller
                 }
                 .dev{
                     position: absolute;
-                    top:0px;
-                    left: calc(50% - 100px);
-                    width: 100px;
-                    height: 70px;
+                    top:-4px;
+                    left: calc(50% - 129px);
+                    width: 129px;
+                    height: 75px;
                     margin: 20px 0px 10px 0px;
                     border-radius:15px;
                     opacity:0.9;
                     padding:0 10px;
-                    background-color:#fff;
+                    background-image:url(\"{{asset('imgs/devback.png')}}\");
+                    background-position: center;
+                    background-size: cover;
+                }
+                .dev img{
+                    height: 56px;
+                    width: 60px;
+                    margin: 8px calc(50% - 30px);
+                  }
                 }
                 .location{
                     position: absolute;
