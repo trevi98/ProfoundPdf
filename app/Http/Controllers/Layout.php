@@ -772,7 +772,6 @@ class Layout extends Controller
                     width: 100%;
                     height: 100%;
                     border-radius: 17px;
-                    object-fit: cover;
                     object-position: center;
             }
             .singl-page-with-caption-text{
@@ -803,7 +802,6 @@ class Layout extends Controller
             .single-full-page-image img{
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
             }
         ";
