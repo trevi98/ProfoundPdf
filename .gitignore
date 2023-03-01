@@ -14,4 +14,5 @@ yarn-error.log
 /.idea
 /.vscode
 /resources/views/download_page.blade.php
+\app\Nova\Actions\DownloadPdef.php
 /resources/views/pdf-*.blade.php

@@ -160,10 +160,10 @@
     setTimeout(function(){
             let a= document.createElement('a');
             a.target= '_blank';
-            a.href= "http://145.14.158.172:3000?url={{Request()->get('view')}}&name={{Request()->get('name')}}";
+            a.href= "http://localhost:3000?url={{Request()->get('view')}}&name={{Request()->get('name')}}";
             a.click();
-        },30000)
+        },15000)
     setTimeout(function(){
         history.back()
-        },30100)
+        },15100)
 </script>

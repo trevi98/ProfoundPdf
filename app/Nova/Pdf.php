@@ -108,6 +108,51 @@ class Pdf extends Resource
                     'colors' => ['#D5DCDD', '#002D31'],
                 ])->default('#002D31')->rules('required'),
             ])
+            ->addLayout('Description - 2 Images', 'description-2-images', [
+                // Text::make('Title','title'),
+                CkEditor::make(trans('Title'), 'title')->height('60')->stacked()->toolbar([
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'underline',
+                    'strikethrough',
+                    '|',
+                    'undo',
+                    'redo'
+                ])->rules('required'),
+                // Trix::make('Description','description'),
+                CkEditor::make(trans('Description'), 'description')->height('400')->stacked()->toolbar([
+                    'heading',
+                    '|',
+                    'link',
+                    '|',
+                    'bold',
+                    'italic',
+                    'alignment',
+                    'subscript',
+                    'superscript',
+                    'underline',
+                    'strikethrough',
+                    '|',
+                    'blockQuote',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'insertTable',
+                    '|',
+                    'undo',
+                    'redo'
+                ])->rules('required'),
+                Image::make('img1')->creationRules('required'),
+                Image::make('img2')->creationRules('required'),
+                Swatches::make('Text Color', 'text_color')->withProps([
+                    'colors' => ['#D5DCDD', '#002D31',"#fff","#000"],
+                ])->default('#fff')->rules('required'),
+                Swatches::make('Background Color', 'background_color')->withProps([
+                    'colors' => ['#D5DCDD', '#002D31'],
+                ])->default('#002D31')->rules('required'),
+            ])
             ->addLayout('Single image with caption', 'single_pic_with_caption', [
                 Image::make('Image','img')->creationRules('required'),
                 Text::make('Caption','caption')->required(),

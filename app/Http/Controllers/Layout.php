@@ -28,6 +28,9 @@ class Layout extends Controller
         else if($args['page']['layout'] == "text_img_img_text"){
             $layout = $this->text_img_img_text(['local'=>$args['page']['data']]);
         }
+        else if($args['page']['layout'] == "description-2-images"){
+            $layout = $this->text_2_imgs(['local'=>$args['page']['data']]);
+        }
 
         return $layout;
     }
@@ -1244,6 +1247,151 @@ class Layout extends Controller
                 object-position: center;
             }
         ";
+        return [$html,$css];
+    }
+    public function text_2_imgs($data){
+        $html = "
+
+        <div class=\"page page-back\">
+            <div class=\"area-fp_first_background\">
+
+            </div>
+
+            <div class=\"area-fp_main\">
+                <div class=\"area-fp_left\">
+                    <div class=\"area-fp_title\">
+                        <div class=\"area-fp_title_img\">
+                            <img src=\"{{ asset('imgs/location.png') }}\" alt=\"\">
+                        </div>
+                        <div class=\"area-fp_title_title\">
+                            ".$data['local']->title."
+                        </div>
+                    </div>
+                    <div class=\"area-fp_description\">
+                        <p>
+
+                        ".$data['local']->description."
+                        </p>
+
+                    </div>
+                </div>
+                <div class=\"area-fp_right\">
+                    <div class=\"wrapper\">
+                        <img src=\"".asset('storage/'.$data['local']->img1)."\" alt=\"\">
+                        <div class=\"area-filter\"></div>
+                    </div>
+                    <div class=\"wrapper\">
+                        <img src=\"".asset('storage/'.$data['local']->img2)."\" alt=\"\">
+                        <div class=\"area-filter\"></div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            </div>
+
+
+        </div>
+
+         ";
+
+            $css = "
+            .page-back{
+                background-color:#D5DCDD;
+            }
+            .area-fp_main .wrapper{
+                position: relative;
+                width:100%;
+                height: calc(50% - 10px);
+            }
+            .area-filter{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(1,20,22,0.4);
+                border-radius: 17px;
+                mix-blend-mode: soft-light;
+            }
+            }
+            .area-fp_first_background{
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                top: 0px;
+                left:0px;
+                z-index: -1;
+                background-color:#D5DCDD;
+            }
+
+            .area-fp_main{
+                box-sizing: border-box;
+                background-color:#002D31;
+                background-repeat: no-repeat;
+                height: calc(100vh - 20px);
+                width: calc(100vw - 40px);
+                margin: 10px 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                color: #fff;
+                font-family: 'nova';
+                padding: 40px 30px;
+                overflow: hidden;
+                border-radius:13px;
+            }
+            .area-fp_left{
+                width: 48%;
+                display: flex;
+                flex-direction: column;
+                gap: 50px;
+            }
+            .area-fp_title{
+                display: flex;
+                width: 450px;
+                flex-direction: row;
+                align-items: center;
+                /* justify-content: space-between; */
+                gap: 30px;
+            }
+            .area-fp_title_img img{
+                width: 80px;
+                height: 80px;
+                -webkit-border-top-left-radius: 20px;
+                -webkit-border-bottom-right-radius: 20px;
+                -moz-border-radius-topleft: 20px;
+                -moz-border-radius-bottomright: 20px;
+            }
+            .area-fp_title_title{
+                font-size: 40px;
+                letter-spacing: 3.5px;
+            }
+            .area-fp_right{
+                width: 48%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .area-fp_right img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-radius:17px;
+            }
+            .area-fp_description{
+                line-height: 2.3;
+                font-family: 'nova';
+                height: calc(100% - 20px);
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            ";
         return [$html,$css];
     }
 }
