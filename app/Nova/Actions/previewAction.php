@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\ActionFields;
 class previewAction extends Action
 {
     use InteractsWithQueue, Queueable;
+    public $name = "Previrw Brochure";
 
     /**
      * Perform the action on the given models.
