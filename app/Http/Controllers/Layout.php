@@ -1260,9 +1260,6 @@ class Layout extends Controller
             <div class=\"area-fp_main\">
                 <div class=\"area-fp_left\">
                     <div class=\"area-fp_title\">
-                        <div class=\"area-fp_title_img\">
-                            <img src=\"{{ asset('imgs/location.png') }}\" alt=\"\">
-                        </div>
                         <div class=\"area-fp_title_title\">
                             ".$data['local']->title."
                         </div>
