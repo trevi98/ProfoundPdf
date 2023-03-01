@@ -13,5 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-# /resources/views/download_page.blade.php
+/resources/views/download_page.blade.php
 /resources/views/pdf-*.blade.php
