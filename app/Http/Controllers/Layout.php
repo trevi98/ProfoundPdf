@@ -813,7 +813,7 @@ class Layout extends Controller
         $total = 6;
         $counter = 0;
         $html = "
-            <div class=\"page\">
+            <div class=\"page page-back\">
                 <div class=\"payment-plan-page-main-title\">
                     <p>
                         Payment Plan
@@ -860,15 +860,19 @@ class Layout extends Controller
                     overflow: hidden;
             }
             .payment-plan-page-main table{
-                    border: 2px #000 solid;
-                    font-size: 20px;
-                    font-family: 'nova';
+                border: 2px #000 solid;
+                font-size: 20px;
+                font-family: 'nova';
+            }
+            .payment-plan-page-main table th{
+                background-color: #002d31;
+                color:#fff;
             }
 
             .payment-plan-page-main table th,.payment-plan-page-main table td{
                 border-left: 2px #000 solid;
                 border-bottom: 2px #000 solid;
-                padding: 25px 50px;
+                padding: 5px 30px;
                 text-align: center;
                 }
             .payment-plan-page-main table th:first-of-type,.payment-plan-page-main table td:first-of-type{
@@ -1189,7 +1193,7 @@ class Layout extends Controller
     }
     public function last_page_layout($data){
         $html = "
-            <div class=\"page \">
+            <div class=\"page \" style=\"background-color:#fff;\">
                 <div class=\"final-page-main\">
                     <div class=\"final-page-img\">
                         ";
