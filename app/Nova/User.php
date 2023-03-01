@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
 {
@@ -107,8 +108,24 @@ class User extends Resource
     {
         return [];
     }
-    public static function availableForNavigation(Request $request)
+    // public static function availableForNavigation(Request $request)
+    // {
+    //     return Auth::user()->is_admin;
+    // }
+    public static function indexQuery(NovaRequest $request, $query)
     {
-        return Auth::user()->is_admin;
+        if(Auth::user()->is_admin){
+            return $query;
+        }
+        else{
+
+            return $query->where('id', Auth::user()->id) ;
+        }
+    }
+    public static function label() {
+        if(Auth::user()->is_admin){
+            return 'Users';
+        }
+        return 'Profile';
     }
 }
