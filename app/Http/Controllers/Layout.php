@@ -810,6 +810,8 @@ class Layout extends Controller
     }
     public function payment_plan_layout($args){
         // dd($args['global']['payment_plans']);
+        $total = 6;
+        $counter = 0;
         $html = "
             <div class=\"page\">
                 <div class=\"payment-plan-page-main-title\">
@@ -973,6 +975,7 @@ class Layout extends Controller
             line-height: 1.5;
             font-size: 18px;
             padding: 0 20px;
+            text-align:center;
         }
         ";
 
