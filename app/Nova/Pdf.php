@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Nova\Actions\DownloadPdef;
+use App\Nova\Actions\previewAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\BelongsTo;
@@ -316,6 +317,7 @@ class Pdf extends Resource
     {
         return [
             new DownloadPdef,
+            new previewAction,
         ];
     }
 
