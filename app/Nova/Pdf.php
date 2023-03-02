@@ -316,8 +316,8 @@ class Pdf extends Resource
     public function actions(Request $request)
     {
         return [
-            new DownloadPdef,
-            new previewAction,
+            DownloadPdef::make()->onlyOnDetail()->withoutConfirmation(),
+            previewAction::make()->onlyOnDetail()->withoutConfirmation(),
         ];
     }
 

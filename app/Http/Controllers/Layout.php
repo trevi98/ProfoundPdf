@@ -169,7 +169,7 @@ class Layout extends Controller
                 .header{
                     width: 100vw;
                     height: 100px;
-                    background-color:#D5DCDD;
+                    /*background-color:#D5DCDD;*/
 
                 }
                 .header img{
@@ -179,9 +179,9 @@ class Layout extends Controller
                 }
                 .cover{
                     position: absolute;
-                    top: 100px;
+                    top: 0px;
                     left: 0px;
-                    height: calc(100% - 200px);
+                    height: 100%;
                     width: 100%;
                     z-index: -1;
                     /* background-color: #5e1771; */
@@ -196,7 +196,7 @@ class Layout extends Controller
                     left: 0px;
                     height: 100px;
                     width: 100%;
-                    background-color:#D5DCDD;
+                    /*background-color:#D5DCDD;*/
 
                 }
                 .footer img{
