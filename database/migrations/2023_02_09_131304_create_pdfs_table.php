@@ -17,6 +17,7 @@ class CreatePdfsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('cover');
+            $table->text('project_logo')->nullable();
             $table->text('last')->nullable();
             $table->text('landmarks')->nullable();
             $table->text('materials')->nullable();

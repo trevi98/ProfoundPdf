@@ -59,6 +59,7 @@ class Pdf extends Resource
             Text::make('Title','title')->required(),
             // Image::make('Developer logo','developer_logo'),
             Image::make('Cover','cover')->creationRules('required'),
+            Image::make('Project logo on cover image ','project_logo'),
             Image::make('Last page image','last'),
             // BelongsTo::make('Area','area')->searchable(),
             Select::make('Area', 'area_id') ->searchable() ->options(\App\Models\Area::all()->pluck('title', 'id')) ->displayUsingLabels()->required(),

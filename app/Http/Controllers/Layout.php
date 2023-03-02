@@ -116,6 +116,14 @@ class Layout extends Controller
             <div class=\"cover\">
                 <div class=\"wrapper\">
                     <img src=\"{{ asset('storage/".$data['cover']."') }}\" alt=\"\">
+                    ";
+                    if($data['project_logo'] != null){
+                        $html .= "
+
+                           <img src=\"{{ asset('storage/".$data['project_logo']."') }}\" alt=\"\" class=\"projlogo\">
+                        ";
+                    }
+        $html .= "
                     <div class=\"filter\"></div>
                 </div>
             </div>
@@ -175,7 +183,7 @@ class Layout extends Controller
                 .header img{
                     width: 100%;
                     height: 100%;
-                    object-position:centert;
+                    object-position:center;
                 }
                 .cover{
                     position: absolute;
@@ -185,6 +193,18 @@ class Layout extends Controller
                     width: 100%;
                     z-index: -1;
                     /* background-color: #5e1771; */
+                }
+                .cover .wrapper{
+                    position: relative;
+                }
+                .cover .projlogo{
+                    width: 150px !important;
+                    height: 150px !important;
+                    position: absolute !important;
+                    top: 120px !important;
+                    left: 260px !important;
+                    object-position: center !important;
+                    object-fit: cover !important;
                 }
                 .cover img{
                     width: 100%;
