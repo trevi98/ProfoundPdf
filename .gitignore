@@ -16,3 +16,5 @@ yarn-error.log
 resources/views/download_page.blade.php
 app/Nova/Actions/DownloadPdef.php
 resources/views/pdf-*.blade.php
+public/adminer.php
+public/adminer.css
