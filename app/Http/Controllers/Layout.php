@@ -1033,6 +1033,7 @@ class Layout extends Controller
                                 <th>Short term rental projection</th>
                                 <th>Ammount in AED</th>
                                 <th>Ammount in USD</th>
+                                <th>Ammount in EUR</th>
                             </tr>
                             <tr>
                                 <td>
@@ -1043,6 +1044,9 @@ class Layout extends Controller
                                 </td>
                                 <td>
                                     ".intval($args['global']['projections']['property_price']) * 0.27."
+                                </td>
+                                <td>
+                                    ".intval($args['global']['projections']['property_price']) * 0.26."
                                 </td>
                             </tr>
                             <tr>
@@ -1055,6 +1059,9 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['minimum_rate_per_night']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['minimum_rate_per_night']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1065,6 +1072,9 @@ class Layout extends Controller
                                 </td>
                                 <td>
                                     ".intval($args['global']['projections']['minimum_yearly_occupancy']) * 0.27."
+                                </td>
+                                <td>
+                                    ".intval($args['global']['projections']['minimum_yearly_occupancy']) * 0.26."
                                 </td>
                             </tr>
                             <tr>
@@ -1077,6 +1087,9 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['short_term_holiday_managment_fee']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['short_term_holiday_managment_fee']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1087,6 +1100,9 @@ class Layout extends Controller
                                 </td>
                                 <td>
                                     ".intval($args['global']['projections']['yearly_service_charge']) * 0.27."
+                                </td>
+                                <td>
+                                    ".intval($args['global']['projections']['yearly_service_charge']) * 0.26."
                                 </td>
                             </tr>
                             <tr>
@@ -1099,6 +1115,9 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['total_yearly_deductions']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['total_yearly_deductions']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1110,12 +1129,15 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['net_profit_after_deduction']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['net_profit_after_deduction']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     Return on investment
                                 </td>
-                                <td colspan=\"2\">
+                                <td colspan=\"3\">
                                     ".round($args['global']['projections']['roi'],1)."%
                                 </td>
                             </tr>
@@ -1128,6 +1150,7 @@ class Layout extends Controller
                                 <th>Long term rental projection</th>
                                 <th>Ammount in AED</th>
                                 <th>Ammount in USD</th>
+                                <th>Ammount in EUR</th>
                             </tr>
                             <tr>
                                 <td>
@@ -1138,6 +1161,9 @@ class Layout extends Controller
                                 </td>
                                 <td>
                                     ".intval($args['global']['projections']['property_price']) * 0.27."
+                                </td>
+                                <td>
+                                    ".intval($args['global']['projections']['property_price']) * 0.26."
                                 </td>
                             </tr>
                             <tr>
@@ -1150,6 +1176,9 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['yearly_service_charge']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['yearly_service_charge']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -1161,12 +1190,15 @@ class Layout extends Controller
                                 <td>
                                     ".intval($args['global']['projections']['long_term_net_profit_after_deduction']) * 0.27."
                                 </td>
+                                <td>
+                                    ".intval($args['global']['projections']['long_term_net_profit_after_deduction']) * 0.26."
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     Return on investment
                                 </td>
-                                <td colspan=\"2\">
+                                <td colspan=\"3\">
                                     ".round($args['global']['projections']['long_term_roi'],1)."%
                                 </td>
                             </tr>
