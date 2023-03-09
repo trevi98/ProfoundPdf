@@ -29,7 +29,7 @@ Route::get('test_page',function(){
     $x->page_resolver(1);
 });
 Route::get('view_test',function(){
-    return view('pdf-640712d9298d5');
+    return view('pdf-640a0f6088290');
 })->name('view_test');
 Route::get('download_view',function(){
     return view(Request()->get('view'));

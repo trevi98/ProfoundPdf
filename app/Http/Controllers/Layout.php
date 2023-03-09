@@ -66,12 +66,12 @@ class Layout extends Controller
         $layout = $this->home_layout($args['global_data']);
         $global_html .= $layout[0];
         $global_css .= $layout[1];
-        if(strlen($args['global_data']['area_description']) <= 968){
+        if(strlen($args['global_data']['area_description']) <= 782){
 
             $layout = $this->area_first_page($args['global_data']);
         }
         else{
-            list($first_part, $second_part) = $this->break_text($args['global_data']['area_description'],968);
+            list($first_part, $second_part) = $this->break_text($args['global_data']['area_description'],782);
             $layout = $this->area_2_pager(['global' => $args['global_data'],'local'=>['first'=>$first_part,'second'=>$second_part]]);
             // dd($first_part);
         }
@@ -242,9 +242,15 @@ class Layout extends Controller
                     border-radius:15px;
                     opacity:0.9;
                     padding:0 10px;
-                    background-image:url(\"{{asset('imgs/devback.png')}}\");
-                    background-position: center;
-                    background-size: cover;
+                    ";
+                    if($data['developer_logo'] != null){
+                        $css .= "
+                        background-image:url(\"{{asset('imgs/devback.png')}}\");
+                        background-position: center;
+                        background-size: cover;";
+                    }
+                        $css .="
+                    }
                 }
                 .dev img{
                     height: 56px;
@@ -439,13 +445,14 @@ class Layout extends Controller
                 border-radius:17px;
             }
             .area-fp_description{
-                line-height: 2.3;
+                line-height: 1.9 !important;
                 font-family: 'nova';
                 height: calc(100% - 20px);
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size:20px;
             }
 
             ";
@@ -620,13 +627,14 @@ class Layout extends Controller
                 border-radius:17px;
             }
             .area-fp_description{
-                line-height: 2.3;
+                line-height: 1.9 !important;
                 font-family: 'nova';
                 height: calc(100% - 20px);
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size:18px;
             }
 
             ";
@@ -714,7 +722,7 @@ class Layout extends Controller
             letter-spacing: 3.5px;
         }
         .map-page-description{
-            font-size: 15px;
+            font-size: 20px;
             line-height: 1.6;
         }
         .map-page-left table{
@@ -1011,7 +1019,7 @@ class Layout extends Controller
         }
         .t-i-i-t-left_text p, .t-i-i-t-right_text p{
             line-height: 1.5;
-            font-size: 18px;
+            font-size: 20px;
             padding: 0 20px;
             text-align:center;
         }
@@ -1457,6 +1465,7 @@ class Layout extends Controller
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size:20px;
             }
 
             ";
